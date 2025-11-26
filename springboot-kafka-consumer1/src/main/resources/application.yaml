@@ -1,0 +1,24 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: kafka_consumer2
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: ${GROUP_ID:${spring.application.name}-${random.value}}
+      group-id1: myGroup_single-consumer1
+      auto-offset-reset: latest   # earliest/latest/none
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        max.poll.records: 500
+
+    topic-json:
+      name: javaguides_json
+    topic-single-consumer:
+      name: single-consumer
