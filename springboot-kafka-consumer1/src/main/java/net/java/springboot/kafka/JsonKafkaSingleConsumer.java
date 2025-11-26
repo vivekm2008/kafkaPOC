@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonKafkaSingleConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaSingleConsumer.class);
-
     @Value("${spring.kafka.consumer.group-id1}")
     private String groupId;
 
