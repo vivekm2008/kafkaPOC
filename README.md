@@ -12,7 +12,6 @@ controller.quorum.voters=1@localhost:9093
 metadata.log.dir=C:/kafka_2.13-3.9.1/kraft-combined-logs
 log.dirs=C:/kafka_2.13-3.9.1/kafka-logs
 
-
 //Then generate id + format:
 cd C:\kafka_2.13-3.9.1\bin\windows
 kafka-storage.bat random-uuid
@@ -20,16 +19,18 @@ kafka-storage.bat format -t <THE-ID-YOU-GOT> -c ..\..\config\server.properties
 kafka-server-start.bat ..\..\config\server.properties
 
 API for Testing
-GET 
+1) GET 
 localhost:8080/api/v1/kafka/publish?message=welcome kafa 
-POST localhost:8080/api/v1/kafka/publish
+
+2) POST 
+localhost:8080/api/v1/kafka/publish
 {
     "id":111,
     "firstName":"Sham",
     "lastName":"Mahajana"
 }
 
-POST
+2) POST
 localhost:8080/api/v1/kafka/single/publis
 {
     "id":12,
